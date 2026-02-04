@@ -6,8 +6,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.DriverFactory;
 import org.testng.Assert;
+import utils.NavigationUtils;
 
 public class MyFirstTest {
+    NavigationUtils navigation =  new NavigationUtils(DriverFactory.getDriver());
 
     private WebDriver driver;
 
@@ -19,20 +21,11 @@ public class MyFirstTest {
     @Test
     public void firstNavigationTest() {
 
-        driver.get("https://www.automation.co.il");
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.automation.co.il/", "URL is incorrect");
+        navigation.goTo("https://digital.harel-group.co.il/travel-policy");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://digital.harel-group.co.il/travel-policy", "URL is incorrect");
         System.out.println("Opened URL: " + driver.getCurrentUrl());
         System.out.println("Title: " + driver.getTitle());
 
-        driver.get("https://www.google.com");
-
-
-        System.out.println("Back to first site");
-
-        driver.navigate().forward();
-        System.out.println("Forward to Google");
-
-        driver.navigate().refresh();
     }
 
     @AfterMethod
