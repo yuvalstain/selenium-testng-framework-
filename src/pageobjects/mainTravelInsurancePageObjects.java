@@ -13,7 +13,7 @@ public class mainTravelInsurancePageObjects extends BasePage {
 
 
     // Web elements
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[1]/div[1]/div/div/div[1]/div/button")
+    @FindBy(css = ".MuiButtonBase-root.MuiButton-root.jss34.jss13.MuiButton-contained.jss12.MuiButton-containedPrimary")
     private WebElement firstBuy;
 
     // Methods

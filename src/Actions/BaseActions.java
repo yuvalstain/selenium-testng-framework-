@@ -24,26 +24,22 @@ public class BaseActions {
     }
 
     //Click element
-    public void click(By locator) {
+    public void click(WebElement locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     //Set text (clear + send keys)
-    public void setText(By locator, String text) {
-        WebElement element = find(locator);
+    public void setText(WebElement element, String text) {
         element.clear();
         element.sendKeys(text);
     }
 
-    //Get visible text
-    public String getText(By locator) {
-        return find(locator).getText();
-    }
-
-    //Check if element is displayed
-    public boolean isDisplayed(By locator) {
+    // Checks if an already located WebElement is displayed
+    public boolean isDisplayed(WebElement element) {
         try {
-            return find(locator).isDisplayed();
+            // Wait briefly for the element to be visible to the driver
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            return shortWait.until(ExpectedConditions.visibilityOf(element)).isDisplayed();
         } catch (Exception e) {
             return false;
         }
