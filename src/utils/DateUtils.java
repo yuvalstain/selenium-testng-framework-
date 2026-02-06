@@ -24,6 +24,20 @@ public class DateUtils {
     }
 
     /**
+     * Returns the date 30 days from date in dd/MM/yyyy format.
+     */
+    public static String getDatePlusMonth(String startDate) {
+        // 1. Convert the String back into a LocalDate object
+        LocalDate date = LocalDate.parse(startDate, FORMATTER);
+
+        // 2. Add 30 days
+        LocalDate futureDate = date.plusDays(30);
+
+        // 3. Format it back to a String
+        return futureDate.format(FORMATTER);
+    }
+
+    /**
      * A flexible version to get any date in the future or past.
      * Use a negative number for past dates.
      */

@@ -52,8 +52,8 @@ public class TravelPolicyTest {
         System.out.println("נבחר יעד");
 
         //date choose page
-        String startDay = DateUtils.getTodayDate();
-        String endDay = DateUtils.getDatePlusSevenDays();
+        String startDay = DateUtils.getDatePlusSevenDays();
+        String endDay = DateUtils.getDatePlusMonth(startDay);
         actions.setText(dateChoosePage.travelStartDate, startDay);
         actions.setText(dateChoosePage.travelEndDate, endDay);
         systemAction.sendKeys(Keys.TAB).build().perform();
